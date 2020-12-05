@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		FF160EB42579648E0066C6B9 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = FF160EB22579648E0066C6B9 /* LICENSE */; };
 		FF160EB52579648E0066C6B9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FF160EB32579648E0066C6B9 /* README.md */; };
+		FF160EBB257985680066C6B9 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF160EBA257985680066C6B9 /* MainView.swift */; };
+		FFCE9588257BD53A002F04A2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCE9587257BD53A002F04A2 /* Constants.swift */; };
+		FFCE958C257BD736002F04A2 /* ViewSpecificController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCE958B257BD736002F04A2 /* ViewSpecificController.swift */; };
 		FFD1CCE625791D40006D075C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD1CCE525791D40006D075C /* AppDelegate.swift */; };
 		FFD1CCEA25791D40006D075C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD1CCE925791D40006D075C /* MainViewController.swift */; };
 		FFD1CCEF25791D43006D075C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFD1CCEE25791D43006D075C /* Assets.xcassets */; };
@@ -16,7 +19,6 @@
 		FFD1CCFD25791D44006D075C /* AlbumArtworksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD1CCFC25791D44006D075C /* AlbumArtworksTests.swift */; };
 		FFD1CD3425791F87006D075C /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD1CD3325791F87006D075C /* Router.swift */; };
 		FFD1CD3825791FBE006D075C /* AssemblyModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD1CD3725791FBE006D075C /* AssemblyModuleBuilder.swift */; };
-		FFD1CD40257922AF006D075C /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFD1CD3F257922AF006D075C /* MainViewController.xib */; };
 		FFD1CD4C25792431006D075C /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD1CD4B25792431006D075C /* MainPresenter.swift */; };
 		FFD1CD5325792772006D075C /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD1CD5225792772006D075C /* RouterTests.swift */; };
 /* End PBXBuildFile section */
@@ -34,6 +36,9 @@
 /* Begin PBXFileReference section */
 		FF160EB22579648E0066C6B9 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		FF160EB32579648E0066C6B9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		FF160EBA257985680066C6B9 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		FFCE9587257BD53A002F04A2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FFCE958B257BD736002F04A2 /* ViewSpecificController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSpecificController.swift; sourceTree = "<group>"; };
 		FFD1CCE225791D40006D075C /* AlbumArtworks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlbumArtworks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFD1CCE525791D40006D075C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FFD1CCE925791D40006D075C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -45,7 +50,6 @@
 		FFD1CCFE25791D44006D075C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FFD1CD3325791F87006D075C /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		FFD1CD3725791FBE006D075C /* AssemblyModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyModuleBuilder.swift; sourceTree = "<group>"; };
-		FFD1CD3F257922AF006D075C /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		FFD1CD4B25792431006D075C /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		FFD1CD5225792772006D075C /* RouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -68,6 +72,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FFCE958F257BD73D002F04A2 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FFCE958B257BD736002F04A2 /* ViewSpecificController.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		FFD1CCD925791D40006D075C = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +110,7 @@
 				FFD1CCF325791D43006D075C /* Info.plist */,
 				FFD1CD3325791F87006D075C /* Router.swift */,
 				FFD1CD3725791FBE006D075C /* AssemblyModuleBuilder.swift */,
+				FFCE958F257BD73D002F04A2 /* Helpers */,
 			);
 			path = AlbumArtworks;
 			sourceTree = "<group>";
@@ -116,7 +129,8 @@
 			isa = PBXGroup;
 			children = (
 				FFD1CCE925791D40006D075C /* MainViewController.swift */,
-				FFD1CD3F257922AF006D075C /* MainViewController.xib */,
+				FFCE9587257BD53A002F04A2 /* Constants.swift */,
+				FF160EBA257985680066C6B9 /* MainView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -212,7 +226,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFD1CCF225791D43006D075C /* LaunchScreen.storyboard in Resources */,
-				FFD1CD40257922AF006D075C /* MainViewController.xib in Resources */,
 				FF160EB52579648E0066C6B9 /* README.md in Resources */,
 				FF160EB42579648E0066C6B9 /* LICENSE in Resources */,
 				FFD1CCEF25791D43006D075C /* Assets.xcassets in Resources */,
@@ -254,8 +267,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFD1CD4C25792431006D075C /* MainPresenter.swift in Sources */,
+				FF160EBB257985680066C6B9 /* MainView.swift in Sources */,
 				FFD1CCEA25791D40006D075C /* MainViewController.swift in Sources */,
 				FFD1CD3425791F87006D075C /* Router.swift in Sources */,
+				FFCE958C257BD736002F04A2 /* ViewSpecificController.swift in Sources */,
+				FFCE9588257BD53A002F04A2 /* Constants.swift in Sources */,
 				FFD1CCE625791D40006D075C /* AppDelegate.swift in Sources */,
 				FFD1CD3825791FBE006D075C /* AssemblyModuleBuilder.swift in Sources */,
 			);
