@@ -9,8 +9,9 @@ import Foundation
 
 struct Constants {
     struct UrlStrings {
-        static let appBaseUrl = "placeholder"
-        static let countryByNameUrl = appBaseUrl + "name/"
+        static let scheme = "https"
+        static let host = "itunes.apple.com"
+        static let country = "RU"
     }
 
     struct CellIdentifiers {

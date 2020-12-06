@@ -10,6 +10,15 @@
 		FF160EB42579648E0066C6B9 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = FF160EB22579648E0066C6B9 /* LICENSE */; };
 		FF160EB52579648E0066C6B9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FF160EB32579648E0066C6B9 /* README.md */; };
 		FF160EBB257985680066C6B9 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF160EBA257985680066C6B9 /* MainView.swift */; };
+		FF520965257D5A2400392EEB /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF520964257D5A2400392EEB /* Media.swift */; };
+		FF52096C257D5B4F00392EEB /* UrlConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF52096B257D5B4F00392EEB /* UrlConstructor.swift */; };
+		FF520970257D600E00392EEB /* UrlConstructorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF52096F257D600D00392EEB /* UrlConstructorTests.swift */; };
+		FF52097A257D6B4200392EEB /* AlbumMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF520979257D6B4200392EEB /* AlbumMain.swift */; };
+		FF52098B257D737200392EEB /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF52098A257D737200392EEB /* Resource.swift */; };
+		FF52098F257D739200392EEB /* NetworkErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF52098E257D739200392EEB /* NetworkErrors.swift */; };
+		FF520993257D73CC00392EEB /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF520992257D73CC00392EEB /* NetworkService.swift */; };
+		FF520997257D745F00392EEB /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF520996257D745F00392EEB /* NetworkDataFetcher.swift */; };
+		FF5209A1257D77AF00392EEB /* MediaServise.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5209A0257D77AF00392EEB /* MediaServise.swift */; };
 		FFCE9588257BD53A002F04A2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCE9587257BD53A002F04A2 /* Constants.swift */; };
 		FFCE958C257BD736002F04A2 /* ViewSpecificController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCE958B257BD736002F04A2 /* ViewSpecificController.swift */; };
 		FFD1CCE625791D40006D075C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD1CCE525791D40006D075C /* AppDelegate.swift */; };
@@ -37,6 +46,15 @@
 		FF160EB22579648E0066C6B9 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		FF160EB32579648E0066C6B9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		FF160EBA257985680066C6B9 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		FF520964257D5A2400392EEB /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
+		FF52096B257D5B4F00392EEB /* UrlConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlConstructor.swift; sourceTree = "<group>"; };
+		FF52096F257D600D00392EEB /* UrlConstructorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlConstructorTests.swift; sourceTree = "<group>"; };
+		FF520979257D6B4200392EEB /* AlbumMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumMain.swift; sourceTree = "<group>"; };
+		FF52098A257D737200392EEB /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
+		FF52098E257D739200392EEB /* NetworkErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrors.swift; sourceTree = "<group>"; };
+		FF520992257D73CC00392EEB /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		FF520996257D745F00392EEB /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
+		FF5209A0257D77AF00392EEB /* MediaServise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaServise.swift; sourceTree = "<group>"; };
 		FFCE9587257BD53A002F04A2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FFCE958B257BD736002F04A2 /* ViewSpecificController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSpecificController.swift; sourceTree = "<group>"; };
 		FFD1CCE225791D40006D075C /* AlbumArtworks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlbumArtworks.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,9 +90,71 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FF520963257D5A0400392EEB /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				FFD1CD4B25792431006D075C /* MainPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		FF52096A257D5A2800392EEB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FF520979257D6B4200392EEB /* AlbumMain.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FF52097F257D6E2E00392EEB /* NetworkLayer */ = {
+			isa = PBXGroup;
+			children = (
+				FF5209A4257D77E500392EEB /* Networking */,
+				FF520980257D6E4B00392EEB /* Models */,
+			);
+			path = NetworkLayer;
+			sourceTree = "<group>";
+		};
+		FF520980257D6E4B00392EEB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FF520964257D5A2400392EEB /* Media.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FF520983257D6E7600392EEB /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FF52096F257D600D00392EEB /* UrlConstructorTests.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		FF52099F257D779000392EEB /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FF5209A0257D77AF00392EEB /* MediaServise.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		FF5209A4257D77E500392EEB /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				FF52098A257D737200392EEB /* Resource.swift */,
+				FF52098E257D739200392EEB /* NetworkErrors.swift */,
+				FF520992257D73CC00392EEB /* NetworkService.swift */,
+				FF520996257D745F00392EEB /* NetworkDataFetcher.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		FFCE958F257BD73D002F04A2 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				FFCE9587257BD53A002F04A2 /* Constants.swift */,
+				FF52096B257D5B4F00392EEB /* UrlConstructor.swift */,
 				FFCE958B257BD736002F04A2 /* ViewSpecificController.swift */,
 			);
 			path = Helpers;
@@ -103,6 +183,9 @@
 		FFD1CCE425791D40006D075C /* AlbumArtworks */ = {
 			isa = PBXGroup;
 			children = (
+				FF52097F257D6E2E00392EEB /* NetworkLayer */,
+				FF52099F257D779000392EEB /* Services */,
+				FFCE958F257BD73D002F04A2 /* Helpers */,
 				FFD1CCE525791D40006D075C /* AppDelegate.swift */,
 				FFD1CD4825792340006D075C /* MainModule */,
 				FFD1CCEE25791D43006D075C /* Assets.xcassets */,
@@ -110,7 +193,6 @@
 				FFD1CCF325791D43006D075C /* Info.plist */,
 				FFD1CD3325791F87006D075C /* Router.swift */,
 				FFD1CD3725791FBE006D075C /* AssemblyModuleBuilder.swift */,
-				FFCE958F257BD73D002F04A2 /* Helpers */,
 			);
 			path = AlbumArtworks;
 			sourceTree = "<group>";
@@ -121,6 +203,7 @@
 				FFD1CCFC25791D44006D075C /* AlbumArtworksTests.swift */,
 				FFD1CCFE25791D44006D075C /* Info.plist */,
 				FFD1CD5225792772006D075C /* RouterTests.swift */,
+				FF520983257D6E7600392EEB /* Helpers */,
 			);
 			path = AlbumArtworksTests;
 			sourceTree = "<group>";
@@ -129,7 +212,6 @@
 			isa = PBXGroup;
 			children = (
 				FFD1CCE925791D40006D075C /* MainViewController.swift */,
-				FFCE9587257BD53A002F04A2 /* Constants.swift */,
 				FF160EBA257985680066C6B9 /* MainView.swift */,
 			);
 			path = View;
@@ -138,8 +220,9 @@
 		FFD1CD4825792340006D075C /* MainModule */ = {
 			isa = PBXGroup;
 			children = (
+				FF52096A257D5A2800392EEB /* Model */,
 				FFD1CD4525792334006D075C /* View */,
-				FFD1CD4B25792431006D075C /* MainPresenter.swift */,
+				FF520963257D5A0400392EEB /* Presenter */,
 			);
 			path = MainModule;
 			sourceTree = "<group>";
@@ -270,9 +353,17 @@
 				FF160EBB257985680066C6B9 /* MainView.swift in Sources */,
 				FFD1CCEA25791D40006D075C /* MainViewController.swift in Sources */,
 				FFD1CD3425791F87006D075C /* Router.swift in Sources */,
+				FF52096C257D5B4F00392EEB /* UrlConstructor.swift in Sources */,
 				FFCE958C257BD736002F04A2 /* ViewSpecificController.swift in Sources */,
+				FF520993257D73CC00392EEB /* NetworkService.swift in Sources */,
+				FF520965257D5A2400392EEB /* Media.swift in Sources */,
 				FFCE9588257BD53A002F04A2 /* Constants.swift in Sources */,
+				FF520997257D745F00392EEB /* NetworkDataFetcher.swift in Sources */,
+				FF52098F257D739200392EEB /* NetworkErrors.swift in Sources */,
+				FF52097A257D6B4200392EEB /* AlbumMain.swift in Sources */,
+				FF52098B257D737200392EEB /* Resource.swift in Sources */,
 				FFD1CCE625791D40006D075C /* AppDelegate.swift in Sources */,
+				FF5209A1257D77AF00392EEB /* MediaServise.swift in Sources */,
 				FFD1CD3825791FBE006D075C /* AssemblyModuleBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,6 +373,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFD1CD5325792772006D075C /* RouterTests.swift in Sources */,
+				FF520970257D600E00392EEB /* UrlConstructorTests.swift in Sources */,
 				FFD1CCFD25791D44006D075C /* AlbumArtworksTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
