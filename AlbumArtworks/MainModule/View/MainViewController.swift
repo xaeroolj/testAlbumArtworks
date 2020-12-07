@@ -40,7 +40,7 @@ final class MainViewController: UIViewController, ViewSpecificController {
 
         view().collectionView.delegate = self
         view().collectionView.dataSource = self
-        view().collectionView.register(UICollectionViewCell.self,
+        view().collectionView.register(MainCell.self,
                                        forCellWithReuseIdentifier: Constants.CellIdentifiers.mainModuleCell)
 
         setupSearchController()
@@ -165,7 +165,16 @@ extension MainViewController: UISearchControllerDelegate {
 }
 
 // MARK: - UICollectionViewDataSource, UICollectionViewDelegate
-extension MainViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension MainViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let inset: CGFloat = 20
+        let column: CGFloat = 2
+        let width  = (view.frame.width - (inset * (column + 1))) / column
+        return CGSize(width: width, height: width)
+    }
+
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
         return presenter.albumsArray?.count ?? 0
@@ -174,10 +183,14 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-        let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.CellIdentifiers.mainModuleCell,
-                                                        for: indexPath)
-        myCell.backgroundColor = UIColor.red
-        return myCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.CellIdentifiers.mainModuleCell,                                                        for: indexPath)
+                as? MainCell else {
+            return UICollectionViewCell()
+        }
+        let album = presenter.albumsArray![indexPath.row]
+        cell.nameLabel.text = album.albumName
+
+        return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
