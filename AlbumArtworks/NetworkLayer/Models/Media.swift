@@ -28,9 +28,9 @@ struct Media: Codable {
     let collectionPrice: Int?
     let collectionExplicitness: String
     let trackCount: Int
-    let copyright: String
+    let copyright: String?
     let country: String
-    let releaseDate: Date
+    let releaseDate: String
     let contentAdvisoryRating: String?
 
     enum CodingKeys: String, CodingKey {

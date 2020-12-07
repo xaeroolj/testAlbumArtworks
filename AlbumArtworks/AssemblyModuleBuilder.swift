@@ -14,8 +14,10 @@ protocol AssemblyBuilderProtocol {
 final class AssemblyModuleBuilder: AssemblyBuilderProtocol {
     func createMainModule(router: RouterProtocol) -> UIViewController {
         let view = MainViewController()
-
-        let presenter = MainPresenter(view: view, router: router)
+        let dataServise = MediaServise()
+        let presenter = MainPresenter(view: view,
+                                      dataServise: dataServise,
+                                      router: router)
         view.presenter = presenter
         return view
     }

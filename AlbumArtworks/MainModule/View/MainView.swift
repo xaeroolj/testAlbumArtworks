@@ -16,7 +16,11 @@ final class MainView: UIView {
         layout.itemSize = CGSize(width: 60, height: 60)
         let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.backgroundColor = .blue
+        if #available(iOS 13.0, *) {
+            collectionView.backgroundColor = .systemBackground
+        } else {
+            collectionView.backgroundColor = .white
+        }
         return collectionView
     }()
     // MARK: - Private Properties
@@ -45,6 +49,26 @@ final class MainView: UIView {
     // MARK: - Public Methods
     public func setBottomConstraint(to constant: CGFloat) {
         collViewBottomConstraint.constant = -constant
+    }
+    public func updateBackground(with message: String?) {
+
+        guard let message = message else {
+            collectionView.backgroundView  = nil
+            return
+        }
+
+        let backgroundLbl: UILabel  = UILabel(frame: CGRect(x: 0, y: 0,
+                                                            width: collectionView.bounds.size.width,
+                                                            height: collectionView.bounds.size.height))
+        backgroundLbl.text = message
+        if #available(iOS 13.0, *) {
+            backgroundLbl.textColor = UIColor.label
+        } else {
+            backgroundLbl.textColor = UIColor.black
+        }
+        backgroundLbl.textAlignment = .center
+        backgroundLbl.numberOfLines = 0
+        collectionView.backgroundView  = backgroundLbl
     }
 
     // MARK: - Private Methods

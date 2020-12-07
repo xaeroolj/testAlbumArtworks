@@ -10,7 +10,8 @@ import UIKit
 protocol MainViewProtocol: AnyObject {
     func viewLoad()
     func updateView()
-    func showError()
+    func loading()
+    func showError(_ error: NetworkError)
 }
 
 final class MainViewController: UIViewController, ViewSpecificController {
@@ -44,6 +45,8 @@ final class MainViewController: UIViewController, ViewSpecificController {
 
         setupSearchController()
         setupNotification()
+        viewLoad()
+        setupUI()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -53,6 +56,20 @@ final class MainViewController: UIViewController, ViewSpecificController {
 
     // MARK: - Public Methods
     // MARK: - Private Methods
+
+    private func setupUI() {
+        self.hideKeyboardWhenTappedAround()
+    }
+
+    private func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view().addGestureRecognizer(tap)
+    }
+
+    @objc private func dismissKeyboard() {
+        searchController.searchBar.resignFirstResponder()
+    }
 
     private func setupSearchController() {
 
@@ -67,12 +84,6 @@ final class MainViewController: UIViewController, ViewSpecificController {
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
 
-        enum Category: CaseIterable {
-            case all, one, two
-        }
-
-        searchController.searchBar.scopeButtonTitles = Category.allCases
-            .map { "\($0)" }
         searchController.searchBar.delegate = self
 
         //definesPresentationContext = true will hide search bar on next VC
@@ -86,10 +97,11 @@ final class MainViewController: UIViewController, ViewSpecificController {
                                 selector: #selector(keyboardWillShowOrHide))
     }
 
-    private func searchContentForSearchText(_ searchText: String,
-                                            category: String? = nil) {
+    private func searchContentForSearchText(_ searchText: String) {
 
-        print("Serch Text: \(searchText), Category: \(category ?? "Not set")")
+        print("Serch Text: \(searchText)")
+
+        presenter.getAlbums(for: searchText)
 
     }
 }
@@ -97,10 +109,37 @@ final class MainViewController: UIViewController, ViewSpecificController {
 // MARK: - MainViewProtocol
 extension MainViewController: MainViewProtocol {
     func viewLoad() {
+        print("main presenter call view load")
+        view().collectionView.reloadData()
+        view().updateBackground(with: "InitState")
+    }
+    func loading() {
+        print("main presenter call loading")
+        view().collectionView.reloadData()
+        view().updateBackground(with: "Loading")
     }
     func updateView() {
+        print("main presenter call updateView")
+        view().collectionView.reloadData()
+        view().updateBackground(with: nil)
     }
-    func showError() {
+    func showError(_ error: NetworkError) {
+        if error == .domainError {
+            var actionArray = [UIAlertAction]()
+            let reloadAlert = UIAlertAction(title: "Constants.ConstantStrings.againAction", style: .default) { (_) in
+
+                self.presenter.reloadData()
+            }
+
+            actionArray.append(reloadAlert)
+
+        self.showAlert(title: "Constants.ConstantStrings.errorTitle",
+                       message: error.localizedDescription,
+                       actions: actionArray)
+        } else {
+            view().collectionView.reloadData()
+            view().updateBackground(with: error.localizedDescription)
+        }
     }
 }
 
@@ -109,23 +148,14 @@ extension MainViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
     }
-
-    func searchBar(_ searchBar: UISearchBar,
-                   selectedScopeButtonIndexDidChange selectedScope: Int) {
-        let category = searchBar.scopeButtonTitles![selectedScope]
-        print("Select cattegory: \(category)")
-        searchContentForSearchText(searchBar.text!, category: category)
-    }
 }
 
 // MARK: - UISearchResultsUpdating
 extension MainViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        //UISearchResultsUpdating will inform your class of any text changes within the UISearchBar.
-        let searchBar = searchController.searchBar
-        let category = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
 
-        searchContentForSearchText(searchBar.text!, category: category)
+        let searchBar = searchController.searchBar
+        searchContentForSearchText(searchBar.text!)
     }
 }
 
@@ -138,7 +168,7 @@ extension MainViewController: UISearchControllerDelegate {
 extension MainViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-        return 200
+        return presenter.albumsArray?.count ?? 0
     }
 
     func collectionView(_ collectionView: UICollectionView,
@@ -148,6 +178,12 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
                                                         for: indexPath)
         myCell.backgroundColor = UIColor.red
         return myCell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
+        guard let album = presenter.albumsArray?[indexPath.row] else { return }
+        print("will open new view with \(indexPath.row) for \(album.albumName)")
     }
 }
 

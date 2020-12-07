@@ -19,6 +19,7 @@
 		FF520993257D73CC00392EEB /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF520992257D73CC00392EEB /* NetworkService.swift */; };
 		FF520997257D745F00392EEB /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF520996257D745F00392EEB /* NetworkDataFetcher.swift */; };
 		FF5209A1257D77AF00392EEB /* MediaServise.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5209A0257D77AF00392EEB /* MediaServise.swift */; };
+		FF5209AA257E214200392EEB /* UIViewController+Extension .swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5209A9257E214200392EEB /* UIViewController+Extension .swift */; };
 		FFCE9588257BD53A002F04A2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCE9587257BD53A002F04A2 /* Constants.swift */; };
 		FFCE958C257BD736002F04A2 /* ViewSpecificController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCE958B257BD736002F04A2 /* ViewSpecificController.swift */; };
 		FFD1CCE625791D40006D075C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD1CCE525791D40006D075C /* AppDelegate.swift */; };
@@ -55,6 +56,7 @@
 		FF520992257D73CC00392EEB /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		FF520996257D745F00392EEB /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
 		FF5209A0257D77AF00392EEB /* MediaServise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaServise.swift; sourceTree = "<group>"; };
+		FF5209A9257E214200392EEB /* UIViewController+Extension .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension .swift"; sourceTree = "<group>"; };
 		FFCE9587257BD53A002F04A2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FFCE958B257BD736002F04A2 /* ViewSpecificController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSpecificController.swift; sourceTree = "<group>"; };
 		FFD1CCE225791D40006D075C /* AlbumArtworks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlbumArtworks.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,6 +152,14 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		FF5209AD257E215F00392EEB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FF5209A9257E214200392EEB /* UIViewController+Extension .swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		FFCE958F257BD73D002F04A2 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +193,7 @@
 		FFD1CCE425791D40006D075C /* AlbumArtworks */ = {
 			isa = PBXGroup;
 			children = (
+				FF5209AD257E215F00392EEB /* Extensions */,
 				FF52097F257D6E2E00392EEB /* NetworkLayer */,
 				FF52099F257D779000392EEB /* Services */,
 				FFCE958F257BD73D002F04A2 /* Helpers */,
@@ -357,6 +368,7 @@
 				FFCE958C257BD736002F04A2 /* ViewSpecificController.swift in Sources */,
 				FF520993257D73CC00392EEB /* NetworkService.swift in Sources */,
 				FF520965257D5A2400392EEB /* Media.swift in Sources */,
+				FF5209AA257E214200392EEB /* UIViewController+Extension .swift in Sources */,
 				FFCE9588257BD53A002F04A2 /* Constants.swift in Sources */,
 				FF520997257D745F00392EEB /* NetworkDataFetcher.swift in Sources */,
 				FF52098F257D739200392EEB /* NetworkErrors.swift in Sources */,
