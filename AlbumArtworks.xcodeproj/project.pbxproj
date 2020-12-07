@@ -24,6 +24,7 @@
 		FF5209C0257EBEA600392EEB /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5209BF257EBEA600392EEB /* DetailViewController.swift */; };
 		FF5209C9257EBEFF00392EEB /* AlbumDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5209C8257EBEFF00392EEB /* AlbumDetail.swift */; };
 		FF5209CE257EBF5700392EEB /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5209CD257EBF5700392EEB /* DetailPresenter.swift */; };
+		FF5209D2257EC09900392EEB /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5209D1257EC09900392EEB /* DetailView.swift */; };
 		FFCE9588257BD53A002F04A2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCE9587257BD53A002F04A2 /* Constants.swift */; };
 		FFCE958C257BD736002F04A2 /* ViewSpecificController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCE958B257BD736002F04A2 /* ViewSpecificController.swift */; };
 		FFD1CCE625791D40006D075C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD1CCE525791D40006D075C /* AppDelegate.swift */; };
@@ -65,6 +66,7 @@
 		FF5209BF257EBEA600392EEB /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		FF5209C8257EBEFF00392EEB /* AlbumDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetail.swift; sourceTree = "<group>"; };
 		FF5209CD257EBF5700392EEB /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
+		FF5209D1257EC09900392EEB /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		FFCE9587257BD53A002F04A2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FFCE958B257BD736002F04A2 /* ViewSpecificController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSpecificController.swift; sourceTree = "<group>"; };
 		FFD1CCE225791D40006D075C /* AlbumArtworks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlbumArtworks.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -171,9 +173,9 @@
 		FF5209C3257EBEC500392EEB /* DetailModule */ = {
 			isa = PBXGroup;
 			children = (
+				FF5209CC257EBF0300392EEB /* Model */,
 				FF5209C7257EBEDD00392EEB /* View */,
 				FF5209C6257EBED300392EEB /* Presenter */,
-				FF5209CC257EBF0300392EEB /* Model */,
 			);
 			path = DetailModule;
 			sourceTree = "<group>";
@@ -190,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				FF5209BF257EBEA600392EEB /* DetailViewController.swift */,
+				FF5209D1257EC09900392EEB /* DetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -235,18 +238,18 @@
 		FFD1CCE425791D40006D075C /* AlbumArtworks */ = {
 			isa = PBXGroup;
 			children = (
+				FFD1CCE525791D40006D075C /* AppDelegate.swift */,
+				FFD1CD3325791F87006D075C /* Router.swift */,
+				FFD1CD3725791FBE006D075C /* AssemblyModuleBuilder.swift */,
 				FF5209AD257E215F00392EEB /* Extensions */,
 				FF52097F257D6E2E00392EEB /* NetworkLayer */,
 				FF52099F257D779000392EEB /* Services */,
 				FFCE958F257BD73D002F04A2 /* Helpers */,
-				FFD1CCE525791D40006D075C /* AppDelegate.swift */,
+				FF5209C3257EBEC500392EEB /* DetailModule */,
 				FFD1CD4825792340006D075C /* MainModule */,
 				FFD1CCEE25791D43006D075C /* Assets.xcassets */,
 				FFD1CCF025791D43006D075C /* LaunchScreen.storyboard */,
 				FFD1CCF325791D43006D075C /* Info.plist */,
-				FFD1CD3325791F87006D075C /* Router.swift */,
-				FFD1CD3725791FBE006D075C /* AssemblyModuleBuilder.swift */,
-				FF5209C3257EBEC500392EEB /* DetailModule */,
 			);
 			path = AlbumArtworks;
 			sourceTree = "<group>";
@@ -409,6 +412,7 @@
 				FF5209B9257E588B00392EEB /* MainCell.swift in Sources */,
 				FF160EBB257985680066C6B9 /* MainView.swift in Sources */,
 				FFD1CCEA25791D40006D075C /* MainViewController.swift in Sources */,
+				FF5209D2257EC09900392EEB /* DetailView.swift in Sources */,
 				FF5209CE257EBF5700392EEB /* DetailPresenter.swift in Sources */,
 				FFD1CD3425791F87006D075C /* Router.swift in Sources */,
 				FF52096C257D5B4F00392EEB /* UrlConstructor.swift in Sources */,

@@ -14,10 +14,12 @@ protocol RouterMain {
 
 protocol RouterProtocol: RouterMain {
     func initialViewController()
+    func showDetail(album: String)
     func popToRoot()
 }
 
 final class Router: RouterProtocol {
+
     var navigationController: UINavigationController?
     var assemblyBuilder: AssemblyBuilderProtocol?
     init(navigationController: UINavigationController,
@@ -31,6 +33,14 @@ final class Router: RouterProtocol {
             navigationController.viewControllers = [mainViewController]
         }
     }
+    func showDetail(album: String) {
+        if let navigationController = navigationController {
+            guard let detailViewController = assemblyBuilder?.createDetailModule(albumID: album,
+                                                                                 router: self) else { return }
+            navigationController.pushViewController(detailViewController, animated: true)
+        }
+    }
+
     func popToRoot() {
         if let navigationController = navigationController {
             navigationController.popToRootViewController(animated: true)

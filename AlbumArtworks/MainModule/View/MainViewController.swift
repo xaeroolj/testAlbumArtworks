@@ -183,10 +183,9 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.CellIdentifiers.mainModuleCell,                                                        for: indexPath)
-                as? MainCell else {
-            return UICollectionViewCell()
-        }
+        guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: Constants.CellIdentifiers.mainModuleCell,
+                for: indexPath) as? MainCell else { return UICollectionViewCell() }
         let album = presenter.albumsArray![indexPath.row]
         cell.nameLabel.text = album.albumName
 
