@@ -12,10 +12,22 @@ class MainCell: UICollectionViewCell {
     lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
-        label.textColor = .gray
         label.numberOfLines = 0
         label.text = "Placeholder"
         label.translatesAutoresizingMaskIntoConstraints = false
+        if #available(iOS 13.0, *) {
+            label.backgroundColor = UIColor.systemBackground.withAlphaComponent(0.5)
+            label.layer.borderColor = UIColor.label.cgColor
+            label.textColor = UIColor.label
+        } else {
+            label.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+            label.layer.borderColor = UIColor.black.cgColor
+            label.textColor = .black
+        }
+        label.layer.borderWidth = 0.0
+        label.layer.masksToBounds = true
+        label.layer.cornerRadius = 5
+
         label.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
         return label
     }()
@@ -65,8 +77,8 @@ class MainCell: UICollectionViewCell {
             backView.trailingAnchor.constraint(equalTo: trailingAnchor),
             nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10),
             nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-            nameLabel.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor, constant: 10),
+            nameLabel.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor, constant: -10),
+            nameLabel.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor, constant: -10),
             albumImage.topAnchor.constraint(equalTo: topAnchor),
             albumImage.leadingAnchor.constraint(equalTo: leadingAnchor),
             albumImage.trailingAnchor.constraint(equalTo: trailingAnchor),
