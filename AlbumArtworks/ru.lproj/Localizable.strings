@@ -1,0 +1,22 @@
+/* 
+  Localizable.strings
+  AlbumArtworks
+
+  Created by Roman Trekhlebov on 08.12.2020.
+  
+*/
+"Main" = "Начало";
+"Placeholder" = "Поиск";
+"album" = "Альбом";
+"price" = "Цена";
+"artist" = "Исполнитель";
+"track" = "Трек";
+"notSetString" = "Не задан";
+"Error" = "Ошибка";
+"Return" = "Возврат";
+"Again" = "Еще раз";
+"initState" = "Используйте поле для поиска";
+"loadingState" = "Загрузка...";
+"decodingError" = "Decoding, внутренняя ошибка.";
+"domainError" = "Ошибка связи. Проверте подключение.";
+"noFoundError" = "Информация не найдена.";

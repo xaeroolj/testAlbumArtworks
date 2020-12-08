@@ -85,9 +85,14 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
         }
         let track = presenter.album?.tracks![indexPath.row]
 
-        cell?.detailTextLabel?.attributedText = String.atributedLblString(lhs: "Artist", rhs: track!.artist)
+        let artistString = NSLocalizedString(LocStrings.Detail.artist, comment: "")
+        let trackString = NSLocalizedString(LocStrings.Detail.track, comment: "")
+
+        cell?.detailTextLabel?.attributedText = String.atributedLblString(lhs: artistString,
+                                                                          rhs: track!.artist)
         cell?.detailTextLabel?.numberOfLines = 0
-        cell!.textLabel!.attributedText = String.atributedLblString(lhs: "Track", rhs: track!.trackName)
+        cell!.textLabel!.attributedText = String.atributedLblString(lhs: trackString,
+                                                                    rhs: track!.trackName)
         cell?.textLabel?.numberOfLines = 0
         return cell!
     }

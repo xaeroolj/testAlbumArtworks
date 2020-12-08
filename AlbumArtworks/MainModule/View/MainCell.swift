@@ -65,7 +65,7 @@ class MainCell: UICollectionViewCell {
             backView.trailingAnchor.constraint(equalTo: trailingAnchor),
             nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10),
             nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 10),
+            nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             nameLabel.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor, constant: 10),
             albumImage.topAnchor.constraint(equalTo: topAnchor),
             albumImage.leadingAnchor.constraint(equalTo: leadingAnchor),

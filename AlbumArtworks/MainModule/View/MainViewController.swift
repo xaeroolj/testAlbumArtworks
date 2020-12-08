@@ -36,7 +36,8 @@ final class MainViewController: UIViewController, ViewSpecificController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = "Main"
+        self.title = NSLocalizedString(LocStrings.Main.mainTitle,
+                                       comment: "")
 
         view().collectionView.delegate = self
         view().collectionView.dataSource = self
@@ -79,7 +80,7 @@ final class MainViewController: UIViewController, ViewSpecificController {
 
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.autocapitalizationType = .none
-        searchController.searchBar.placeholder = "Placeholder"
+        searchController.searchBar.placeholder = NSLocalizedString(LocStrings.Main.searchPlaceholder, comment: "")
 
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
@@ -111,12 +112,16 @@ extension MainViewController: MainViewProtocol {
     func viewLoad() {
         print("main presenter call view load")
         view().collectionView.reloadData()
-        view().updateBackground(with: "InitState")
+        let localizedString = NSLocalizedString(LocStrings.Main.intState,
+                                                comment: "")
+        view().updateBackground(with: NSLocalizedString(localizedString, comment: ""))
     }
     func loading() {
         print("main presenter call loading")
         view().collectionView.reloadData()
-        view().updateBackground(with: "Loading")
+        let localizedString = NSLocalizedString(LocStrings.Main.loadingState,
+                                               comment: "")
+        view().updateBackground(with: localizedString)
     }
     func updateView() {
         print("main presenter call updateView")
@@ -125,15 +130,20 @@ extension MainViewController: MainViewProtocol {
     }
     func showError(_ error: NetworkError) {
         if error == .domainError {
+            let localizedActionString = NSLocalizedString(LocStrings.Err.againAction,
+                                                          comment: "")
+            let localizedTitle = NSLocalizedString(LocStrings.Err.againAction,
+                                                   comment: "")
             var actionArray = [UIAlertAction]()
-            let reloadAlert = UIAlertAction(title: "Constants.ConstantStrings.againAction", style: .default) { (_) in
+
+            let reloadAlert = UIAlertAction(title: localizedActionString, style: .default) { (_) in
 
                 self.presenter.reloadData()
             }
 
             actionArray.append(reloadAlert)
 
-        self.showAlert(title: "Constants.ConstantStrings.errorTitle",
+        self.showAlert(title: localizedTitle,
                        message: error.localizedDescription,
                        actions: actionArray)
         } else {

@@ -44,7 +44,7 @@ final class DetailView: UIView {
         let view = UIActivityIndicatorView(style: .whiteLarge)
         view.hidesWhenStopped = true
         view.startAnimating()
-
+        view.color = labelColor
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -75,11 +75,22 @@ final class DetailView: UIView {
     // MARK: - Public Methods
 
     public func setInitUI(_ album: AlbumDetailModelProtocol) {
-        albumName.attributedText = String.atributedLblString(lhs: "Album", rhs: album.albumName, sizeMultiplayer: 1.3)
+
+        let albumString = NSLocalizedString(LocStrings.Detail.album, comment: "")
+        let priceString = NSLocalizedString(LocStrings.Detail.price, comment: "")
+        let notSetString = NSLocalizedString(LocStrings.Detail.notSetString, comment: "")
+
+        albumName.attributedText = String.atributedLblString(lhs: albumString,
+                                                             rhs: album.albumName,
+                                                             sizeMultiplayer: 1.3)
         if let price = album.collectionPrice {
-            albumPrice.attributedText = String.atributedLblString(lhs: "Price", rhs: "\(price)", sizeMultiplayer: 1.3)
+            albumPrice.attributedText = String.atributedLblString(lhs: priceString,
+                                                                  rhs: "\(price)",
+                                                                  sizeMultiplayer: 1.3)
         } else {
-            albumPrice.attributedText = String.atributedLblString(lhs: "Price", rhs: "Not Set", sizeMultiplayer: 1.3)
+            albumPrice.attributedText = String.atributedLblString(lhs: priceString,
+                                                                  rhs: notSetString,
+                                                                  sizeMultiplayer: 1.3)
         }
     }
     // MARK: - Private Methods
@@ -115,7 +126,7 @@ final class DetailView: UIView {
 
             albumName.topAnchor.constraint(equalTo: albumImage.bottomAnchor, constant: 4),
             albumName.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            albumName.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: 16),
+            albumName.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
 
             albumPrice.topAnchor.constraint(equalTo: albumName.bottomAnchor, constant: 4),
             albumPrice.leadingAnchor.constraint(equalTo: albumName.leadingAnchor),
