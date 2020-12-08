@@ -75,7 +75,7 @@ final class DetailPresenter: DetailViewPresenterProtocol {
     }
 
     func reloadData() {
-
+        self.getAlbum(forID: requestedAlbum)
     }
 
 }

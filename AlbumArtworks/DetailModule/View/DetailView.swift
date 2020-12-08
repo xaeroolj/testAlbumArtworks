@@ -112,8 +112,8 @@ final class DetailView: UIView {
         addSubview(albumName)
         addSubview(albumImage)
         addSubview(albumPrice)
-        addSubview(activityIndicator)
         addSubview(tableView)
+        addSubview(activityIndicator)
 
         NSLayoutConstraint.activate([
             activityIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),

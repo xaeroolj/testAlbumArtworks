@@ -28,6 +28,7 @@
 		FF5209DC257FF95C00392EEB /* String+Extension .swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5209DB257FF95C00392EEB /* String+Extension .swift */; };
 		FF5209E0257FFD8200392EEB /* LocStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5209DF257FFD8200392EEB /* LocStrings.swift */; };
 		FF5209EA258000E300392EEB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FF5209EC258000E300392EEB /* Localizable.strings */; };
+		FF5209F52580178000392EEB /* UiTableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5209F42580178000392EEB /* UiTableView+Extension.swift */; };
 		FFCE9588257BD53A002F04A2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCE9587257BD53A002F04A2 /* Constants.swift */; };
 		FFCE958C257BD736002F04A2 /* ViewSpecificController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCE958B257BD736002F04A2 /* ViewSpecificController.swift */; };
 		FFD1CCE625791D40006D075C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD1CCE525791D40006D075C /* AppDelegate.swift */; };
@@ -76,6 +77,7 @@
 		FF5209EB258000E300392EEB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FF5209ED258000EA00392EEB /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FF5209F12580038F00392EEB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		FF5209F42580178000392EEB /* UiTableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UiTableView+Extension.swift"; sourceTree = "<group>"; };
 		FFCE9587257BD53A002F04A2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FFCE958B257BD736002F04A2 /* ViewSpecificController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSpecificController.swift; sourceTree = "<group>"; };
 		FFD1CCE225791D40006D075C /* AlbumArtworks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlbumArtworks.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -176,6 +178,7 @@
 			children = (
 				FF5209A9257E214200392EEB /* UIViewController+Extension .swift */,
 				FF5209DB257FF95C00392EEB /* String+Extension .swift */,
+				FF5209F42580178000392EEB /* UiTableView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -440,6 +443,7 @@
 				FFCE9588257BD53A002F04A2 /* Constants.swift in Sources */,
 				FF520997257D745F00392EEB /* NetworkDataFetcher.swift in Sources */,
 				FF52098F257D739200392EEB /* NetworkErrors.swift in Sources */,
+				FF5209F52580178000392EEB /* UiTableView+Extension.swift in Sources */,
 				FF52097A257D6B4200392EEB /* AlbumMain.swift in Sources */,
 				FF52098B257D737200392EEB /* Resource.swift in Sources */,
 				FFD1CCE625791D40006D075C /* AppDelegate.swift in Sources */,

@@ -39,6 +39,7 @@ final class MainPresenter: NSObject, MainViewPresenterProtocol {
 
     func reloadData() {
         guard let term = self.lastTerm else { return }
+        lastTerm = ""
         getAlbums(for: term)
     }
 
