@@ -9,7 +9,7 @@ import UIKit
 
 protocol AssemblyBuilderProtocol {
     func createMainModule(router: RouterProtocol) -> UIViewController
-    func createDetailModule(albumID: String, router: RouterProtocol) -> UIViewController
+    func createDetailModule(album: AlbumDetailModelProtocol, router: RouterProtocol) -> UIViewController
 }
 
 final class AssemblyModuleBuilder: AssemblyBuilderProtocol {
@@ -22,12 +22,13 @@ final class AssemblyModuleBuilder: AssemblyBuilderProtocol {
         view.presenter = presenter
         return view
     }
-    func createDetailModule(albumID: String, router: RouterProtocol) -> UIViewController {
+    func createDetailModule(album: AlbumDetailModelProtocol, router: RouterProtocol) -> UIViewController {
         let view = DetailViewController()
         let dataServise = MediaServise()
         let presenter = DetailPresenter(view: view,
                                       dataServise: dataServise,
-                                      router: router)
+                                      router: router,
+                                      album: album)
         view.presenter = presenter
         return view
     }

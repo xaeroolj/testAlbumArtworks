@@ -36,7 +36,7 @@ final class MainViewController: UIViewController, ViewSpecificController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = "Title"
+        self.title = "Main"
 
         view().collectionView.delegate = self
         view().collectionView.dataSource = self
@@ -195,7 +195,7 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
         guard let album = presenter.albumsArray?[indexPath.row] else { return }
-        print("will open new view with \(indexPath.row) for \(album.albumName)")
+        presenter.tapOnAlbum(album: album)
     }
 }
 

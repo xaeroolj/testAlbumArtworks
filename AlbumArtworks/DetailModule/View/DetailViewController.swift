@@ -30,13 +30,11 @@ final class DetailViewController: UIViewController, ViewSpecificController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.title = "Detail"
 
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+        view().tableView.delegate = self
+        view().tableView.dataSource = self
+        presenter.initData()
     }
     // MARK: - Public Methods
     // MARK: - Private Methods
@@ -46,16 +44,56 @@ final class DetailViewController: UIViewController, ViewSpecificController {
 extension DetailViewController: DetailViewProtocol {
     func viewLoad() {
 
+        print("presenter viewLoad")
+        guard let album = presenter.album else { return }
+        self.title = "\(album.albumId)"
+        view().setInitUI(album)
+
+        print(presenter.album!.artworkUrl as Any)
     }
 
     func updateView() {
+        print("presenter updateView")
+        view().activityIndicator.stopAnimating()
+        view().tableView.reloadData()
 
     }
 
     func loading() {
-
+        print("presenter loading")
+        view().activityIndicator.startAnimating()
     }
 
     func showError(_ error: NetworkError) {
+        print("Error: \(error)")
+        view().activityIndicator.stopAnimating()
     }
+}
+
+extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        presenter.album?.tracks?.count ?? 0
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        var cell: UITableViewCell? = tableView.dequeueReusableCell(withIdentifier:
+                                                                    Constants.CellIdentifiers.detailModuleCell)
+        if cell == nil {
+            cell = UITableViewCell(style: .subtitle,
+                                   reuseIdentifier: Constants.CellIdentifiers.detailModuleCell)
+        }
+        let track = presenter.album?.tracks![indexPath.row]
+
+        cell?.detailTextLabel?.attributedText = String.atributedLblString(lhs: "Artist", rhs: track!.artist)
+        cell?.detailTextLabel?.numberOfLines = 0
+        cell!.textLabel!.attributedText = String.atributedLblString(lhs: "Track", rhs: track!.trackName)
+        cell?.textLabel?.numberOfLines = 0
+        return cell!
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+
 }

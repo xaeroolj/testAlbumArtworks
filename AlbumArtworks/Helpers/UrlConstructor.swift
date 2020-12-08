@@ -33,4 +33,15 @@ final class UrlConstructor {
         }
         return components.url
     }
+    static func getAlbumDataUrl(albumId: Int) -> URL? {
+        var components = URLComponents()
+        components.scheme = Constants.UrlStrings.scheme
+        components.host = Constants.UrlStrings.host
+        components.path = "/lookup"
+        components.queryItems = [
+            URLQueryItem(name: "id", value: "\(albumId)"),
+            URLQueryItem(name: "entity", value: "song")
+        ]
+        return components.url
+    }
 }

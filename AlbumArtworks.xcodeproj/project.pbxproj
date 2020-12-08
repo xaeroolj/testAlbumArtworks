@@ -25,6 +25,7 @@
 		FF5209C9257EBEFF00392EEB /* AlbumDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5209C8257EBEFF00392EEB /* AlbumDetail.swift */; };
 		FF5209CE257EBF5700392EEB /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5209CD257EBF5700392EEB /* DetailPresenter.swift */; };
 		FF5209D2257EC09900392EEB /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5209D1257EC09900392EEB /* DetailView.swift */; };
+		FF5209DC257FF95C00392EEB /* String+Extension .swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5209DB257FF95C00392EEB /* String+Extension .swift */; };
 		FFCE9588257BD53A002F04A2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCE9587257BD53A002F04A2 /* Constants.swift */; };
 		FFCE958C257BD736002F04A2 /* ViewSpecificController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCE958B257BD736002F04A2 /* ViewSpecificController.swift */; };
 		FFD1CCE625791D40006D075C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD1CCE525791D40006D075C /* AppDelegate.swift */; };
@@ -67,6 +68,7 @@
 		FF5209C8257EBEFF00392EEB /* AlbumDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetail.swift; sourceTree = "<group>"; };
 		FF5209CD257EBF5700392EEB /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
 		FF5209D1257EC09900392EEB /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		FF5209DB257FF95C00392EEB /* String+Extension .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension .swift"; sourceTree = "<group>"; };
 		FFCE9587257BD53A002F04A2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FFCE958B257BD736002F04A2 /* ViewSpecificController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSpecificController.swift; sourceTree = "<group>"; };
 		FFD1CCE225791D40006D075C /* AlbumArtworks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlbumArtworks.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				FF5209A9257E214200392EEB /* UIViewController+Extension .swift */,
+				FF5209DB257FF95C00392EEB /* String+Extension .swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -410,6 +413,7 @@
 				FF5209C9257EBEFF00392EEB /* AlbumDetail.swift in Sources */,
 				FFD1CD4C25792431006D075C /* MainPresenter.swift in Sources */,
 				FF5209B9257E588B00392EEB /* MainCell.swift in Sources */,
+				FF5209DC257FF95C00392EEB /* String+Extension .swift in Sources */,
 				FF160EBB257985680066C6B9 /* MainView.swift in Sources */,
 				FFD1CCEA25791D40006D075C /* MainViewController.swift in Sources */,
 				FF5209D2257EC09900392EEB /* DetailView.swift in Sources */,

@@ -14,7 +14,7 @@ protocol RouterMain {
 
 protocol RouterProtocol: RouterMain {
     func initialViewController()
-    func showDetail(album: String)
+    func showDetail(album: AlbumDetailModelProtocol)
     func popToRoot()
 }
 
@@ -33,9 +33,9 @@ final class Router: RouterProtocol {
             navigationController.viewControllers = [mainViewController]
         }
     }
-    func showDetail(album: String) {
+    func showDetail(album: AlbumDetailModelProtocol) {
         if let navigationController = navigationController {
-            guard let detailViewController = assemblyBuilder?.createDetailModule(albumID: album,
+            guard let detailViewController = assemblyBuilder?.createDetailModule(album: album,
                                                                                  router: self) else { return }
             navigationController.pushViewController(detailViewController, animated: true)
         }

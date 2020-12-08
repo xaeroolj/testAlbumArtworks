@@ -16,6 +16,7 @@ struct Constants {
 
     struct CellIdentifiers {
         static let mainModuleCell = "MainCell"
+        static let detailModuleCell = "DetailCell"
     }
 
     struct ConstantStrings {

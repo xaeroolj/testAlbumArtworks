@@ -10,4 +10,5 @@ import Foundation
 protocol AlbumMainModelProtocol {
     var albumName: String {get}
     var artworkUrl: String? {get}
+    var collectionId: Int {get}
 }

@@ -57,4 +57,14 @@ class URLConstructorTests: XCTestCase {
         //then
         XCTAssertEqual(sut?.absoluteString, expectedUrlString)
     }
+
+    func testUrlConstructor_getAlbumData() throws {
+
+        //given
+        let expectedUrlString =  "https://itunes.apple.com/lookup?id=331790882&entity=song"
+        //when
+        let sut = UrlConstructor.getAlbumDataUrl(albumId: "331790882")
+        //then
+        XCTAssertEqual(sut?.absoluteString, expectedUrlString)
+    }
 }

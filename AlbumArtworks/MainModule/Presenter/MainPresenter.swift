@@ -16,6 +16,7 @@ protocol MainViewPresenterProtocol: AnyObject {
     var lastTerm: String! {get set}
 
     func getAlbums(for term: String)
+    func tapOnAlbum(album: AlbumMainModelProtocol)
     func reloadData()
 }
 
@@ -82,5 +83,10 @@ final class MainPresenter: NSObject, MainViewPresenterProtocol {
                 }
             }
         }
+    }
+
+    func tapOnAlbum(album: AlbumMainModelProtocol) {
+        guard let detailAlbum = album as? AlbumDetailModelProtocol else { return }
+        router?.showDetail(album: detailAlbum)
     }
 }

@@ -15,7 +15,7 @@ protocol MediaServiseProtocolForMainViewProtocol {
 }
 
 protocol MediaServiseProtocolForDetailViewProtocol {
-    func getAlbumTracksFor(albumId: String,
+    func getAlbumTracksFor(albumId: Int,
                            completion: @escaping (Result<MediaResponse, NetworkError>) -> Void)
 }
     final class MediaServise: MediaServiseProtocol {
@@ -41,13 +41,12 @@ protocol MediaServiseProtocolForDetailViewProtocol {
         }
 
         // MARK: - getAlbumTracksFor
-        func getAlbumTracksFor(albumId: String,
+        func getAlbumTracksFor(albumId: Int,
                                completion: @escaping (Result<MediaResponse, NetworkError>) -> Void) {
-            if albumId.isEmpty { return }
+            if albumId == 0 { return }
 
-            #warning("Ned to fix! for tracks urls")
-            guard let url = UrlConstructor.getMusicByTermUrl(term: albumId) else {
-                print("error on getMediaFor badUrl")
+            guard let url = UrlConstructor.getAlbumDataUrl(albumId: albumId) else {
+                print("error on getAlbumTracksFor badUrl")
                 return
             }
 

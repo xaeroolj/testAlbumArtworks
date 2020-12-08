@@ -22,23 +22,28 @@ struct MediaResponse: Codable {
 struct Media: Codable {
     let wrapperType: WrapperType
     let artistName, collectionName: String
+    let collectionId: Int
     let artistViewURL: String?
     let collectionViewURL: String?
-    let artworkUrl60, artworkUrl100: String?
-    let collectionPrice: Int?
+    let artworkUrl60, artworkUrl100, trackName: String?
+    let collectionPrice: Double?
     let collectionExplicitness: String
     let trackCount: Int
     let copyright: String?
     let country: String
     let releaseDate: String
     let contentAdvisoryRating: String?
+    let trackNumber: Int?
+    let trackTimeMillis: Int?
+
+    var tracks: [Track]?
 
     enum CodingKeys: String, CodingKey {
-        case artistName, collectionName, wrapperType
+        case wrapperType, artistName, collectionName, collectionId
         case artistViewURL = "artistViewUrl"
         case collectionViewURL = "collectionViewUrl"
-        case artworkUrl60, artworkUrl100, collectionPrice, collectionExplicitness,
-             trackCount, copyright, country, releaseDate, contentAdvisoryRating
+        case artworkUrl60, artworkUrl100, trackName, collectionPrice, collectionExplicitness,
+             trackCount, copyright, country, releaseDate, contentAdvisoryRating, trackNumber, trackTimeMillis
     }
 
     enum WrapperType: String, Codable {
@@ -58,5 +63,24 @@ extension Media: AlbumMainModelProtocol {
             return hightUrl
         }
         return nil
+    }
+}
+
+extension Media: AlbumDetailModelProtocol {
+
+    var albumId: Int {
+        return self.collectionId
+    }
+
+    mutating func addTracks(from mediaData: [Media]) {
+        self.tracks = prepareTracks(from: mediaData)
+    }
+
+    private func prepareTracks(from mediaData: [Media]) -> [Track] {
+        let tracksMedia = mediaData.filter { media -> Bool in
+            return media.wrapperType == .track
+        }
+
+        return tracksMedia.compactMap { Track(from: $0)}
     }
 }
