@@ -70,7 +70,10 @@ final class MainPresenter: NSObject, MainViewPresenterProtocol {
                 do {
                     let mediaArray = try result.get().mediaArray
                     if !mediaArray.isEmpty {
-                        self.albumsArray = mediaArray
+                        let sortedArray = mediaArray.sorted { itemA, itemB in
+                            itemA.albumName < itemB.albumName
+                        }
+                        self.albumsArray = sortedArray
                         self.view?.updateView()
                     } else {
                         self.albumsArray?.removeAll()
