@@ -18,16 +18,19 @@ class RouterTests: XCTestCase {
         assembly = AssemblyModuleBuilder()
         router = Router(navigationController: navigatioController, assemblyBuilder: assembly)
     }
+
     override func tearDownWithError() throws {
         router = nil
         navigatioController = nil
         assembly = nil
     }
+
     func testInitialViewController() throws {
         router.initialViewController()
         let rootVC = navigatioController.viewControllers.first
         XCTAssertTrue(rootVC is MainViewController)
     }
+
     func testPopToRoot() {
         router.initialViewController()
         router.popToRoot()
