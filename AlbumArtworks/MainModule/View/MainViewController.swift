@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Nuke
 
 protocol MainViewProtocol: AnyObject {
     func viewLoad()
@@ -48,6 +49,8 @@ final class MainViewController: UIViewController, ViewSpecificController {
         setupNotification()
         viewLoad()
         setupUI()
+        setupNuke()
+
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -60,6 +63,18 @@ final class MainViewController: UIViewController, ViewSpecificController {
 
     private func setupUI() {
         self.hideKeyboardWhenTappedAround()
+    }
+
+    private func setupNuke() {
+        let contentModes = ImageLoadingOptions.ContentModes(
+            success: .scaleAspectFill,
+            failure: .scaleAspectFit,
+            placeholder: .scaleAspectFit)
+
+        ImageLoadingOptions.shared.contentModes = contentModes
+        ImageLoadingOptions.shared.placeholder = UIImage(named: "appleSJM")
+        ImageLoadingOptions.shared.failureImage = UIImage(named: "appleSJM")
+        ImageLoadingOptions.shared.transition = .fadeIn(duration: 0.5)
     }
 
     private func hideKeyboardWhenTappedAround() {
@@ -116,6 +131,7 @@ extension MainViewController: MainViewProtocol {
                                                 comment: "")
         view().updateBackground(with: NSLocalizedString(localizedString, comment: ""))
     }
+
     func loading() {
         print("main presenter call loading")
         view().collectionView.reloadData()
@@ -123,11 +139,13 @@ extension MainViewController: MainViewProtocol {
                                                comment: "")
         view().updateBackground(with: localizedString)
     }
+
     func updateView() {
         print("main presenter call updateView")
         view().collectionView.reloadData()
         view().updateBackground(with: nil)
     }
+
     func showError(_ error: NetworkError) {
         if error == .domainError {
             let localizedActionString = NSLocalizedString(LocStrings.Err.againAction,
@@ -165,7 +183,8 @@ extension MainViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
 
         let searchBar = searchController.searchBar
-        searchContentForSearchText(searchBar.text!)
+        guard let searchString = searchBar.text else {return}
+        searchContentForSearchText(searchString)
     }
 }
 
@@ -195,9 +214,19 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
 
         guard let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: Constants.CellIdentifiers.mainModuleCell,
-                for: indexPath) as? MainCell else { return UICollectionViewCell() }
-        let album = presenter.albumsArray![indexPath.row]
+                for: indexPath) as? MainCell,
+              let album = presenter.albumsArray?[indexPath.row] else { return UICollectionViewCell() }
+
         cell.nameLabel.text = album.albumName
+
+        if let urlString = album.artworkUrl,
+           let url = URL(string: urlString) {
+
+            let request = ImageRequest(
+                url: url)
+
+            Nuke.loadImage(with: request, into: cell.albumImage)
+        }
 
         return cell
     }

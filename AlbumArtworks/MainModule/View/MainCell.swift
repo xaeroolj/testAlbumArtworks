@@ -16,11 +16,11 @@ class MainCell: UICollectionViewCell {
         label.text = "Placeholder"
         label.translatesAutoresizingMaskIntoConstraints = false
         if #available(iOS 13.0, *) {
-            label.backgroundColor = UIColor.systemBackground.withAlphaComponent(0.5)
+            label.backgroundColor = UIColor.systemBackground.withAlphaComponent(0.8)
             label.layer.borderColor = UIColor.label.cgColor
             label.textColor = UIColor.label
         } else {
-            label.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+            label.backgroundColor = UIColor.white.withAlphaComponent(0.8)
             label.layer.borderColor = UIColor.black.cgColor
             label.textColor = .black
         }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Nuke
 
 protocol DetailViewProtocol: AnyObject {
     func viewLoad()
@@ -31,10 +32,31 @@ final class DetailViewController: UIViewController, ViewSpecificController {
         view().tableView.delegate = self
         view().tableView.dataSource = self
         presenter.initData()
+        setupNuke()
     }
     // MARK: - Public Methods
     // MARK: - Private Methods
-    // MARK: - IBActions
+    private func setupNuke() {
+        guard let imageString = presenter.album?.artworkUrl,
+              let url = URL(string: imageString)else { return }
+        view().albumImage.image = ImageLoadingOptions.shared.placeholder
+
+        ImagePipeline.shared.loadImage(
+            with: url) { [weak self] response in
+            guard let self = self else {
+                return
+            }
+            switch response {
+            case .failure:
+                self.view().albumImage.image = ImageLoadingOptions.shared.failureImage
+                self.view().albumImage.contentMode = .scaleAspectFit
+
+            case let .success(imageResponse):
+                self.view().albumImage.image = imageResponse.image
+                self.view().albumImage.contentMode = .scaleAspectFill
+            }
+        }
+    }
 }
 
 extension DetailViewController: DetailViewProtocol {
@@ -44,7 +66,6 @@ extension DetailViewController: DetailViewProtocol {
         self.title = "\(album.albumId)"
         view().setInitUI(album)
         view().tableView.setBackgroundLbl(with: nil)
-        view().albumImage.downloaded(from: presenter.album!.artworkUrl!)
     }
     func updateView() {
         print("presenter updateView")
