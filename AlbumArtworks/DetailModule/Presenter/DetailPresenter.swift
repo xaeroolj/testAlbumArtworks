@@ -20,17 +20,19 @@ protocol DetailViewPresenterProtocol: AnyObject {
     func getAlbum(forID albumID: Int)
     func reloadData()
 }
-
+// MARK: - DetailPresenter
 final class DetailPresenter: DetailViewPresenterProtocol {
 
+    // MARK: - Public Properties
     weak var view: DetailViewProtocol?
     var router: RouterProtocol?
     let dataServise: MediaServiseProtocolForDetailViewProtocol!
-
-    private let requestedAlbum: Int!
-
     var album: AlbumDetailModelProtocol?
 
+    // MARK: - Private Properties
+    private let requestedAlbum: Int!
+
+    // MARK: - Initializers
     required init(view: DetailViewProtocol,
                   dataServise: MediaServiseProtocolForDetailViewProtocol,
                   router: RouterProtocol,
@@ -42,6 +44,7 @@ final class DetailPresenter: DetailViewPresenterProtocol {
         self.album = album
     }
 
+    // MARK: - Public Methods
     func initData() {
         view?.viewLoad()
         self.getAlbum(forID: requestedAlbum)

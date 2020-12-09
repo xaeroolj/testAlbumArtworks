@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+// MARK: - App localization Strings
 struct LocStrings {
     //MainView UI
     struct Main {

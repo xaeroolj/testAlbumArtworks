@@ -27,12 +27,14 @@ final class Router: RouterProtocol {
         self.navigationController = navigationController
         self.assemblyBuilder = assemblyBuilder
     }
+
     func initialViewController() {
         if let navigationController = navigationController {
             guard let mainViewController = assemblyBuilder?.createMainModule(router: self) else { return }
             navigationController.viewControllers = [mainViewController]
         }
     }
+
     func showDetail(album: AlbumDetailModelProtocol) {
         if let navigationController = navigationController {
             guard let detailViewController = assemblyBuilder?.createDetailModule(album: album,

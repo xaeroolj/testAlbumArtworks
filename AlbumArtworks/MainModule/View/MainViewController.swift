@@ -18,7 +18,6 @@ protocol MainViewProtocol: AnyObject {
 final class MainViewController: UIViewController, ViewSpecificController {
     typealias RootView = MainView
 
-    // MARK: - IBOutlets
     // MARK: - Public Properties
     var presenter: MainViewPresenterProtocol!
     var searchController: UISearchController!
@@ -27,9 +26,7 @@ final class MainViewController: UIViewController, ViewSpecificController {
     private var isSearchBarEmpty: Bool {
         return searchController.searchBar.text?.isEmpty ?? true
     }
-    // MARK: - Initializers
     // MARK: - Lifecycle
-
     override func loadView() {
         self.view = MainView()
     }
@@ -58,9 +55,7 @@ final class MainViewController: UIViewController, ViewSpecificController {
         unsubscribeFromAllNotifications()
     }
 
-    // MARK: - Public Methods
     // MARK: - Private Methods
-
     private func setupUI() {
         self.hideKeyboardWhenTappedAround()
     }
@@ -190,11 +185,12 @@ extension MainViewController: UISearchResultsUpdating {
 
 // MARK: - UISearchControllerDelegate
 extension MainViewController: UISearchControllerDelegate {
-
+    //stub
 }
 
 // MARK: - UICollectionViewDataSource, UICollectionViewDelegate
 extension MainViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {

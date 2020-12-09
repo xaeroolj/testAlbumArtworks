@@ -20,8 +20,10 @@ protocol MainViewPresenterProtocol: AnyObject {
     func reloadData()
 }
 
-final class MainPresenter: NSObject, MainViewPresenterProtocol {
+// MARK: - MainPresenter
+final class MainPresenter: NSObject {
 
+    // MARK: - Public Properties
     weak var view: MainViewProtocol?
     var router: RouterProtocol?
     let dataServise: MediaServiseProtocolForMainViewProtocol!
@@ -29,6 +31,7 @@ final class MainPresenter: NSObject, MainViewPresenterProtocol {
     var albumsArray: [AlbumMainModelProtocol]?
     var lastTerm: String!
 
+    // MARK: - Initializers
     required init(view: MainViewProtocol,
                   dataServise: MediaServiseProtocolForMainViewProtocol,
                   router: RouterProtocol) {
@@ -36,11 +39,19 @@ final class MainPresenter: NSObject, MainViewPresenterProtocol {
         self.router = router
         self.dataServise = dataServise
     }
+}
 
+// MARK: - MainViewPresenterProtocol
+extension MainPresenter: MainViewPresenterProtocol {
     func reloadData() {
         guard let term = self.lastTerm else { return }
         lastTerm = ""
         getAlbums(for: term)
+    }
+
+    func tapOnAlbum(album: AlbumMainModelProtocol) {
+        guard let detailAlbum = album as? AlbumDetailModelProtocol else { return }
+        router?.showDetail(album: detailAlbum)
     }
 
     func getAlbums(for term: String) {
@@ -87,10 +98,5 @@ final class MainPresenter: NSObject, MainViewPresenterProtocol {
                 }
             }
         }
-    }
-
-    func tapOnAlbum(album: AlbumMainModelProtocol) {
-        guard let detailAlbum = album as? AlbumDetailModelProtocol else { return }
-        router?.showDetail(album: detailAlbum)
     }
 }

@@ -21,7 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let router = Router(navigationController: navigationController, assemblyBuilder: assemblyBuilder)
         window?.rootViewController = navigationController
         router.initialViewController()
-//        router.showDetail(album: "331790882")
         window?.makeKeyAndVisible()
         return true
     }

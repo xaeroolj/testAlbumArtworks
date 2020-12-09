@@ -20,6 +20,7 @@ final class DetailView: UIView {
         label.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
         return label
     }()
+
     lazy var albumPrice: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
@@ -30,6 +31,7 @@ final class DetailView: UIView {
         label.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
         return label
     }()
+
     lazy var albumImage: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "appleSJM")
@@ -40,6 +42,7 @@ final class DetailView: UIView {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
+
     lazy var activityIndicator: UIActivityIndicatorView = {
         let view = UIActivityIndicatorView(style: .whiteLarge)
         view.hidesWhenStopped = true
@@ -73,7 +76,6 @@ final class DetailView: UIView {
     }
 
     // MARK: - Public Methods
-
     public func setInitUI(_ album: AlbumDetailModelProtocol) {
 
         let albumString = NSLocalizedString(LocStrings.Detail.album, comment: "")

@@ -50,6 +50,7 @@ final class MainView: UIView {
     public func setBottomConstraint(to constant: CGFloat) {
         collViewBottomConstraint.constant = -constant
     }
+
     public func updateBackground(with message: String?) {
 
         guard let message = message else {
@@ -77,6 +78,7 @@ final class MainView: UIView {
         addSubview(collectionView)
         setupLayout()
     }
+
     private func setupLayout() {
         collViewBottomConstraint = collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
         NSLayoutConstraint.activate([

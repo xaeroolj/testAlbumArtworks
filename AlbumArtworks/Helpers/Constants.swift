@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+// MARK: - App Constants
 struct Constants {
     struct UrlStrings {
         static let scheme = "https"

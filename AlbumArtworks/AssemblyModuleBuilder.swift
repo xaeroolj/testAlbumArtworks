@@ -22,6 +22,7 @@ final class AssemblyModuleBuilder: AssemblyBuilderProtocol {
         view.presenter = presenter
         return view
     }
+
     func createDetailModule(album: AlbumDetailModelProtocol, router: RouterProtocol) -> UIViewController {
         let view = DetailViewController()
         let dataServise = MediaServise()

@@ -9,6 +9,7 @@ import UIKit
 
 class MainCell: UICollectionViewCell {
 
+    // MARK: - Public Properties
     lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
@@ -31,6 +32,7 @@ class MainCell: UICollectionViewCell {
         label.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
         return label
     }()
+
     lazy var albumImage: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "appleSJM")
@@ -58,12 +60,19 @@ class MainCell: UICollectionViewCell {
         return view
     }()
 
+    // MARK: - Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)
-
         addViews()
     }
-    func addViews() {
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        addViews()
+    }
+
+    // MARK: - Private Methods
+    private func addViews() {
 
         addSubview(backView)
         backView.addSubview(nameLabel)
@@ -84,9 +93,5 @@ class MainCell: UICollectionViewCell {
             albumImage.trailingAnchor.constraint(equalTo: trailingAnchor),
             albumImage.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }

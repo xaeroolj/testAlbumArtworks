@@ -15,17 +15,16 @@ protocol DetailViewProtocol: AnyObject {
     func showError(_ error: NetworkError)
 }
 
+// MARK: - DetailViewController
 final class DetailViewController: UIViewController, ViewSpecificController {
     typealias RootView = DetailView
-    // MARK: - IBOutlets
     // MARK: - Public Properties
     var presenter: DetailViewPresenterProtocol!
-    // MARK: - Private Properties
-    // MARK: - Initializers
     // MARK: - Lifecycle
     override func loadView() {
         self.view = DetailView()
     }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Detail"
@@ -34,7 +33,7 @@ final class DetailViewController: UIViewController, ViewSpecificController {
         presenter.initData()
         setupNuke()
     }
-    // MARK: - Public Methods
+
     // MARK: - Private Methods
     private func setupNuke() {
         guard let imageString = presenter.album?.artworkUrl,
@@ -58,7 +57,7 @@ final class DetailViewController: UIViewController, ViewSpecificController {
         }
     }
 }
-
+// MARK: - DetailViewProtocol
 extension DetailViewController: DetailViewProtocol {
     func viewLoad() {
         print("presenter viewLoad")
@@ -67,16 +66,19 @@ extension DetailViewController: DetailViewProtocol {
         view().setInitUI(album)
         view().tableView.setBackgroundLbl(with: nil)
     }
+
     func updateView() {
         print("presenter updateView")
         view().activityIndicator.stopAnimating()
         view().tableView.setBackgroundLbl(with: nil)
         view().tableView.reloadData()
     }
+
     func loading() {
         print("presenter loading")
         view().activityIndicator.startAnimating()
     }
+
     func showError(_ error: NetworkError) {
         print("Error: \(error)")
         view().activityIndicator.stopAnimating()
@@ -103,7 +105,7 @@ extension DetailViewController: DetailViewProtocol {
         }
     }
 }
-
+// MARK: - UITableViewDelegate, UITableViewDataSource
 extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         presenter.album?.tracks?.count ?? 0
@@ -117,21 +119,20 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
             cell = UITableViewCell(style: .subtitle,
                                    reuseIdentifier: Constants.CellIdentifiers.detailModuleCell)
         }
-        let track = presenter.album?.tracks![indexPath.row]
+        guard let track = presenter.album?.tracks?[indexPath.row] else { return UITableViewCell() }
 
         let artistString = NSLocalizedString(LocStrings.Detail.artist, comment: "")
         let trackString = NSLocalizedString(LocStrings.Detail.track, comment: "")
 
         cell?.detailTextLabel?.attributedText = String.atributedLblString(lhs: artistString,
-                                                                          rhs: track!.artist)
+                                                                          rhs: track.artist)
         cell?.detailTextLabel?.numberOfLines = 0
-        cell!.textLabel!.attributedText = String.atributedLblString(lhs: trackString,
-                                                                    rhs: track!.trackName)
+        cell?.textLabel?.attributedText = String.atributedLblString(lhs: trackString,
+                                                                    rhs: track.trackName)
         cell?.textLabel?.numberOfLines = 0
-        return cell!
+        return cell ?? UITableViewCell()
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
-
 }

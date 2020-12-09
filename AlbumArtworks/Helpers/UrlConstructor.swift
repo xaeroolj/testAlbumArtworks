@@ -26,10 +26,10 @@ final class UrlConstructor {
         ]
 
         if let limit = limit {
-            components.queryItems!.append(URLQueryItem(name: "limit", value: "\(limit)"))
+            components.queryItems?.append(URLQueryItem(name: "limit", value: "\(limit)"))
         }
         if let offset = offset {
-            components.queryItems!.append(URLQueryItem(name: "offset", value: "\(offset)"))
+            components.queryItems?.append(URLQueryItem(name: "offset", value: "\(offset)"))
         }
         return components.url
     }
