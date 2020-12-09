@@ -31,8 +31,9 @@ Other requirements:
 • API description:
 https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/
 
-
+<hr>
 iOS min version 12.4
 iOS 13 dark appearance supported
 
 pod used: https://github.com/kean/Nuke
+<hr>
