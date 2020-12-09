@@ -1,4 +1,6 @@
 # iOSTestAlbumArtworks
+skill test app 12 dec 2020
+
 ![iOS Build And test](https://github.com/xaeroolj/testAlbumArtworks/workflows/iOS%20Build%20And%20test/badge.svg)
 ![SwiftLint](https://github.com/xaeroolj/testAlbumArtworks/workflows/SwiftLint/badge.svg)
 
@@ -28,3 +30,9 @@ Other requirements:
 • albums have to be sorted alphabetically
 • API description:
 https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/
+
+
+iOS min version 12.4
+iOS 13 dark appearance supported
+
+pod used: https://github.com/kean/Nuke
