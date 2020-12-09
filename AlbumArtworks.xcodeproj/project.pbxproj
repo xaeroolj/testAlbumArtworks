@@ -31,13 +31,18 @@
 		FF5209E0257FFD8200392EEB /* LocStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5209DF257FFD8200392EEB /* LocStrings.swift */; };
 		FF5209EA258000E300392EEB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FF5209EC258000E300392EEB /* Localizable.strings */; };
 		FF5209F52580178000392EEB /* UiTableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5209F42580178000392EEB /* UiTableView+Extension.swift */; };
+		FF520A142580DF9600392EEB /* MediaServiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF520A132580DF9500392EEB /* MediaServiseTests.swift */; };
+		FF520A242580E54E00392EEB /* MainPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF520A232580E54E00392EEB /* MainPresenterTests.swift */; };
+		FF520A2A2580E58100392EEB /* MockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF520A292580E58100392EEB /* MockView.swift */; };
+		FF520A332580E64700392EEB /* MockMainMediaDataserivse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF520A322580E64700392EEB /* MockMainMediaDataserivse.swift */; };
+		FF520A392580EB1E00392EEB /* DetailPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF520A382580EB1E00392EEB /* DetailPresenterTests.swift */; };
+		FF520A4B2580ECDE00392EEB /* MockDetailMediaDataserivse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF520A4A2580ECDE00392EEB /* MockDetailMediaDataserivse.swift */; };
 		FFCE9588257BD53A002F04A2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCE9587257BD53A002F04A2 /* Constants.swift */; };
 		FFCE958C257BD736002F04A2 /* ViewSpecificController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCE958B257BD736002F04A2 /* ViewSpecificController.swift */; };
 		FFD1CCE625791D40006D075C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD1CCE525791D40006D075C /* AppDelegate.swift */; };
 		FFD1CCEA25791D40006D075C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD1CCE925791D40006D075C /* MainViewController.swift */; };
 		FFD1CCEF25791D43006D075C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFD1CCEE25791D43006D075C /* Assets.xcassets */; };
 		FFD1CCF225791D43006D075C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFD1CCF025791D43006D075C /* LaunchScreen.storyboard */; };
-		FFD1CCFD25791D44006D075C /* AlbumArtworksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD1CCFC25791D44006D075C /* AlbumArtworksTests.swift */; };
 		FFD1CD3425791F87006D075C /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD1CD3325791F87006D075C /* Router.swift */; };
 		FFD1CD3825791FBE006D075C /* AssemblyModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD1CD3725791FBE006D075C /* AssemblyModuleBuilder.swift */; };
 		FFD1CD4C25792431006D075C /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD1CD4B25792431006D075C /* MainPresenter.swift */; };
@@ -86,6 +91,12 @@
 		FF5209ED258000EA00392EEB /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FF5209F12580038F00392EEB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		FF5209F42580178000392EEB /* UiTableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UiTableView+Extension.swift"; sourceTree = "<group>"; };
+		FF520A132580DF9500392EEB /* MediaServiseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaServiseTests.swift; sourceTree = "<group>"; };
+		FF520A232580E54E00392EEB /* MainPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenterTests.swift; sourceTree = "<group>"; };
+		FF520A292580E58100392EEB /* MockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockView.swift; sourceTree = "<group>"; };
+		FF520A322580E64700392EEB /* MockMainMediaDataserivse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMainMediaDataserivse.swift; sourceTree = "<group>"; };
+		FF520A382580EB1E00392EEB /* DetailPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenterTests.swift; sourceTree = "<group>"; };
+		FF520A4A2580ECDE00392EEB /* MockDetailMediaDataserivse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDetailMediaDataserivse.swift; sourceTree = "<group>"; };
 		FFCE9587257BD53A002F04A2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FFCE958B257BD736002F04A2 /* ViewSpecificController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSpecificController.swift; sourceTree = "<group>"; };
 		FFD1CCE225791D40006D075C /* AlbumArtworks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlbumArtworks.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,7 +106,6 @@
 		FFD1CCF125791D43006D075C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FFD1CCF325791D43006D075C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FFD1CCF825791D44006D075C /* AlbumArtworksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlbumArtworksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FFD1CCFC25791D44006D075C /* AlbumArtworksTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumArtworksTests.swift; sourceTree = "<group>"; };
 		FFD1CCFE25791D44006D075C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FFD1CD3325791F87006D075C /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		FFD1CD3725791FBE006D075C /* AssemblyModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyModuleBuilder.swift; sourceTree = "<group>"; };
@@ -248,6 +258,40 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		FF520A172580E4B500392EEB /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FF520A132580DF9500392EEB /* MediaServiseTests.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		FF520A222580E53900392EEB /* MainModuleTests */ = {
+			isa = PBXGroup;
+			children = (
+				FF520A232580E54E00392EEB /* MainPresenterTests.swift */,
+			);
+			path = MainModuleTests;
+			sourceTree = "<group>";
+		};
+		FF520A2D2580E58600392EEB /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				FF520A292580E58100392EEB /* MockView.swift */,
+				FF520A322580E64700392EEB /* MockMainMediaDataserivse.swift */,
+				FF520A4A2580ECDE00392EEB /* MockDetailMediaDataserivse.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		FF520A362580EAFB00392EEB /* DetailModuleTests */ = {
+			isa = PBXGroup;
+			children = (
+				FF520A382580EB1E00392EEB /* DetailPresenterTests.swift */,
+			);
+			path = DetailModuleTests;
+			sourceTree = "<group>";
+		};
 		FFCE958F257BD73D002F04A2 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -304,10 +348,13 @@
 		FFD1CCFB25791D44006D075C /* AlbumArtworksTests */ = {
 			isa = PBXGroup;
 			children = (
-				FFD1CCFC25791D44006D075C /* AlbumArtworksTests.swift */,
+				FF520A362580EAFB00392EEB /* DetailModuleTests */,
+				FF520A222580E53900392EEB /* MainModuleTests */,
 				FFD1CCFE25791D44006D075C /* Info.plist */,
 				FFD1CD5225792772006D075C /* RouterTests.swift */,
+				FF520A172580E4B500392EEB /* Services */,
 				FF520983257D6E7600392EEB /* Helpers */,
+				FF520A2D2580E58600392EEB /* Mocks */,
 			);
 			path = AlbumArtworksTests;
 			sourceTree = "<group>";
@@ -552,9 +599,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF520A332580E64700392EEB /* MockMainMediaDataserivse.swift in Sources */,
+				FF520A142580DF9600392EEB /* MediaServiseTests.swift in Sources */,
+				FF520A392580EB1E00392EEB /* DetailPresenterTests.swift in Sources */,
 				FFD1CD5325792772006D075C /* RouterTests.swift in Sources */,
 				FF520970257D600E00392EEB /* UrlConstructorTests.swift in Sources */,
-				FFD1CCFD25791D44006D075C /* AlbumArtworksTests.swift in Sources */,
+				FF520A2A2580E58100392EEB /* MockView.swift in Sources */,
+				FF520A4B2580ECDE00392EEB /* MockDetailMediaDataserivse.swift in Sources */,
+				FF520A242580E54E00392EEB /* MainPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
