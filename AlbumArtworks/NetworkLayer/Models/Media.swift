@@ -57,10 +57,10 @@ extension Media: AlbumMainModelProtocol {
         return self.collectionName
     }
     var artworkUrl: String? {
-        if let lowUrl = self.artworkUrl60 {
-            return lowUrl
-        } else if let hightUrl = self.artworkUrl100 {
+        if let hightUrl = self.artworkUrl100 {
             return hightUrl
+        } else if let lowUrl = self.artworkUrl60 {
+            return lowUrl
         }
         return nil
     }
